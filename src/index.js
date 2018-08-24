@@ -1,3 +1,7 @@
-import Cat from './cat.js';
-import Dog from './dog.js';
-export { Dog, Cat };
+import * as simple from './simple.js';
+import * as set from './set.js';
+
+export {
+  simple,
+  set
+};

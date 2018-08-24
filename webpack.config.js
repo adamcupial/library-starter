@@ -1,9 +1,9 @@
 /* global __dirname, require, module*/
 
-const webpack = require('webpack');
 const path = require('path');
 const env = require('yargs').argv.env; // use --env with webpack 2
 const pkg = require('./package.json');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 let libraryName = pkg.name;
 
@@ -22,18 +22,21 @@ const config = {
   entry: __dirname + '/src/index.js',
   devtool: 'source-map',
   output: {
-    path: __dirname + '/lib',
+    path: __dirname + '/dist',
     filename: outputFile,
     library: libraryName,
     libraryTarget: 'umd',
     umdNamedDefine: true
   },
+  plugins: [
+    new CleanWebpackPlugin(['dist'])
+  ],
   module: {
     rules: [
       {
         test: /(\.jsx|\.js)$/,
         loader: 'babel-loader',
-        exclude: /(node_modules|bower_components)/
+        exclude: /(node_modules)/
       },
       {
         test: /(\.jsx|\.js)$/,

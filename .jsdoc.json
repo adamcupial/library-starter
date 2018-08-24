@@ -1,0 +1,20 @@
+{
+    "recurseDepth": 10,
+    "source": {
+        "include": ["src", "package.json", "README.md"],
+        "includePattern": ".js$",
+        "excludePattern": "(node_modules/|docs)"
+    },
+    "plugins": [],
+    "sourceType": "module",
+    "tags": {
+        "allowUnknownTags": true,
+        "dictionaries": ["jsdoc"]
+    },
+    "opts": {
+      "destination": "./doc/",
+      "encoding": "utf8",
+      "private": true,
+      "recurse": true
+    }
+}
